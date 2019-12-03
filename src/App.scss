@@ -1,7 +1,13 @@
 .App {
   text-align: center;
+  position: relative;
   background: rgb(191,191,191);
   height: 100vh;
+  min-height:790px;
+  @media all and (min-width:768px) {
+    min-height:730px;
+  }
+
 }
 
 

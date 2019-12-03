@@ -3,5 +3,59 @@
 }
 .fa-github{
     font-size: 200px;
+    margin: 100px auto;
     color:rgb(163,161,162);
+}
+.card__container{
+    box-shadow: 1px 1px  10px #666;
+    width: 306px;
+    border-radius: 2px;
+    margin:0px auto 12px;
+    text-align: left;
+};
+.card__img{
+    width:306px; 
+    border-radius: 2px;
+}
+.card__user{
+    background-color: white;
+}
+.card__login{
+    margin-top:20px;
+    color: rgb(195,195,197);
+    margin-bottom: 3px;
+    padding-left: 30px;
+    font-size: 10px;
+}
+.card__name{
+    color:rgb( 3,157,142);
+    padding-left: 30px;
+    font-size: 18px;
+}
+.card__location{
+    color: #666;
+    margin-top:20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    font-size: 10px;
+}
+.fa-map-marker-alt{
+    color: rgb(0,216,196);
+}
+.card__info{
+ background: linear-gradient(to bottom, rgb(2,158,143),rgb(9,215,195));
+ display: flex;
+ padding: 30px 40px 18px;
+ justify-content: space-between;
+ color: white;
+}
+.card__info--item{
+    margin:5px;
+    text-align: center;
+}
+.card__info--num{
+    font-size:32px;
+}
+.card__months{
+   color: #666;
 }
