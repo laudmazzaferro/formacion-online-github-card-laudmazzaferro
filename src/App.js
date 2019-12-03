@@ -2,7 +2,7 @@ import React from 'react';
 import Select from './Components/Select';
 import Card from './Components/Card';
 import { fetchMembers } from './services/fetchMembers';
-import { fetchMember }  from '';
+import { fetchMember }  from './services/fetchMember';
 import './App.css';
 
 class App extends React.Component {
@@ -35,18 +35,24 @@ class App extends React.Component {
   };
 
   getMemberInfo(){
-
+    const ENDPOINT = `https://api.github.com/users/${this.state.selectMember}`
+    fetchMember(ENDPOINT)
+    .then(data => {
+      this.setState({
+        member: data
+      }, () => { console.log(this.state.member) })
+    });
   }
 
 
 
   render() {
-    const { members } = this.state;
+    const { members , member } = this.state;
     return (
       <div className="App">
         <main>
           <Select members={members} getSelectMember={this.getSelectMember}></Select>
-          <Card></Card>
+          <Card member={member}></Card>
         </main>
 
       </div>
