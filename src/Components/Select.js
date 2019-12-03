@@ -18,7 +18,7 @@ class Select extends React.Component {
     return (
       <div className="select__members--container">
         <label htmlFor="members" className="select__members--label"></label>
-        <select id="members" name="members" placeholder="Selecciona un usuario" className="select__members" onChange={this.getSelectValue} >
+        <select id="members" name="members" placeholder="Selecciona un usuario" className="select__members" onChange={this.getSelectValue} ><i class="fas fa-sort-down"></i>
           {members.map(member => {
             return (<option value={member.login} key={member.id}className="select__members--option">{member.login}</option>)
           })}
