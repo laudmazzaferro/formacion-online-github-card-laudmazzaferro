@@ -4,6 +4,7 @@ import Card from './Components/Card';
 import { fetchMembers } from './services/fetchMembers';
 import { fetchMember }  from './services/fetchMember';
 import './App.css';
+import moment, { months } from 'moment';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,14 +12,18 @@ class App extends React.Component {
     this.state = {
       members: [],
       selectMember: '',
-      member:{}
+      member:{},
+      currentDay:'',
+      months:''
     }
     this.getMembers = this.getMembers.bind(this);
     this.getSelectMember = this.getSelectMember.bind(this);
     this.getMemberInfo = this.getMemberInfo.bind(this);
+    this.getCurrentDate = this.getCurrentDate.bind(this);
   }
   componentDidMount() {
     this.getMembers();
+    this.getCurrentDate();
   };
   getMembers() {
     fetchMembers()
@@ -28,6 +33,7 @@ class App extends React.Component {
         }, () => { console.log(this.state.members) })
       });
   };
+  
   getSelectMember(value) {
     this.setState({
       selectMember: value
@@ -40,21 +46,38 @@ class App extends React.Component {
     .then(data => {
       this.setState({
         member: data
-      }, () => { console.log(this.state.member) })
+      }, () => { this.getMoms()})
     });
   }
 
+  getCurrentDate(){
+    const date = new Date();
+    this.setState({
+      currentDay:date
+    })
+  }
+
+  getMoms(){
+    const endDate = new moment(this.state.currentDay);
+    const startDate = new moment(this.state.member.created_at);
+    const years=moment.duration(endDate.diff(startDate)).years();
+    const months = moment.duration(endDate.diff(startDate)).months();
+    const  duration = years*12 +months;
+    this.setState({
+      months:parseInt(duration)
+    })
+  
+  }
 
 
   render() {
-    const { members , member } = this.state;
+    const { members , member , months} = this.state;
     return (
       <div className="App">
         <main>
-          <Select members={members} getSelectMember={this.getSelectMember}></Select>
-          <Card member={member}></Card>
+          <Select members={members} getSelectMember={this.getSelectMember} ></Select>
+          <Card member={member} selectMember={this.state.selectMember} months={months}></Card>
         </main>
-
       </div>
     )
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 
 class Select extends React.Component {
@@ -30,7 +29,8 @@ class Select extends React.Component {
 }
 
 Select.propTypes = {
-
+  members: PropTypes.array.isRequired,
+  getSelectMember: PropTypes.func.isRequired,
 };
 
 export default Select;
