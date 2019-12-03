@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './../scss/Select.scss'
 
 
 class Select extends React.Component {

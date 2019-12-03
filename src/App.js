@@ -1,10 +1,11 @@
 import React from 'react';
 import Select from './Components/Select';
 import Card from './Components/Card';
+import Footer from './Components/Footer'
 import { fetchMembers } from './services/fetchMembers';
 import { fetchMember }  from './services/fetchMember';
-import './App.css';
-import moment, { months } from 'moment';
+import './App.scss';
+import moment from 'moment';
 
 class App extends React.Component {
   constructor(props) {
@@ -78,6 +79,7 @@ class App extends React.Component {
           <Select members={members} getSelectMember={this.getSelectMember} ></Select>
           <Card member={member} selectMember={this.state.selectMember} months={months}></Card>
         </main>
+        <Footer ></Footer>
       </div>
     )
   }

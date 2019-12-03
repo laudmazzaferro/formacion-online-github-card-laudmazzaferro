@@ -13,7 +13,7 @@ const Card = props => {
             <img src={`${member.avatar_url}`} alt={`Imagen de ${member.login}`} className="card__img"/>
             <p className="card__login">@{member.login}</p>
             <h2 className="card__name">{member.name}</h2>
-            <p className="card__location">{member.location}</p>
+            <p className="card__location"><i class="fas fa-map-marker-alt"></i> {member.location}</p>
           </div>
           <div className="card__info">
             <div className="card__repos">
@@ -34,8 +34,8 @@ const Card = props => {
       )
     }else{
       return (
-      <div>
-        hola
+      <div className="card__enty">
+       <i class="fab fa-github"></i>
       </div>)
     }
     }
