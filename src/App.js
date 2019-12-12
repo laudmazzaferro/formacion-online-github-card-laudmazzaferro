@@ -17,10 +17,8 @@ class App extends React.Component {
       currentDay:'',
       months:''
     }
-    this.getMembers = this.getMembers.bind(this);
     this.getSelectMember = this.getSelectMember.bind(this);
     this.getMemberInfo = this.getMemberInfo.bind(this);
-    this.getCurrentDate = this.getCurrentDate.bind(this);
   }
   componentDidMount() {
     this.getMembers();
@@ -31,7 +29,7 @@ class App extends React.Component {
       .then(data => {
         this.setState({
           members: data
-        }, () => { console.log(this.state.members) })
+        })
       });
   };
   
@@ -47,7 +45,7 @@ class App extends React.Component {
     .then(data => {
       this.setState({
         member: data
-      }, () => { this.getMoms()})
+      }, () => { this.getMonths()})
     });
   }
 
@@ -58,7 +56,7 @@ class App extends React.Component {
     })
   }
 
-  getMoms(){
+  getMonths(){
     const endDate = new moment(this.state.currentDay);
     const startDate = new moment(this.state.member.created_at);
     const years=moment.duration(endDate.diff(startDate)).years();

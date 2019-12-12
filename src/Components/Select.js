@@ -4,10 +4,7 @@ import './../scss/Select.scss'
 
 
 class Select extends React.Component {
-  constructor(props) {
-    super(props);
-    this.getSelectValue = this.getSelectValue.bind(this);
-  }
+  
   getSelectValue(event){
     const {value}= event.currentTarget;
     this.props.getSelectMember(value);
